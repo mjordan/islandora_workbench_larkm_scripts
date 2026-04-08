@@ -9,7 +9,7 @@ This three-phase approach to creating ARKs for Islandora objects (populating the
 ## Requirements
 
 - [Islandora Workbench](https://mjordan.github.io/islandora_workbench_docs/)
-- An operating [larkm](https://github.com/mjordan/larkm) ARK manager/resolver
+- An operational [larkm](https://github.com/mjordan/larkm) ARK manager/resolver
 
 ## Installation
 
