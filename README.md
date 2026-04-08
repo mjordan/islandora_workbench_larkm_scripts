@@ -17,7 +17,7 @@ Run `python -m pip install .`
 
 ## Usage
 
-All three of the included scripts are Islandora Workbench "[hook](https://mjordan.github.io/islandora_workbench_docs/hooks/)" scripts (one CSV preproceessor script, one post-node-create scripts, and one shutdown script). They are configured in your Workbench config file as documented below and work in tandem to populate your Islandora objects with ARKs and to also persist the ARKs in a larkm instance. When correctly configured, these scripts automate this process within a Workbench job.
+All three of the included scripts are Islandora Workbench "[hook](https://mjordan.github.io/islandora_workbench_docs/hooks/)" scripts (one CSV preproceessor script, one post-node-create scripts, and one shutdown script). They are configured in your Workbench config file as documented below and work in tandem to populate your Islandora objects with ARKs and to also persist the ARKs in a larkm instance. When correctly configured, these scripts automate this process within the initial `create` Workbench job.
 
 In addition to the configuration settings described below, you will need to make sure that the IP address of the computer running Islandora Workbench is included in the larkm configuration setting "trusted_ips".
 
