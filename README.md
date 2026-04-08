@@ -61,6 +61,32 @@ larkm_multivalue_separator: ;
 - `larkm_queue_path`: Absolute path to the persistent queue file.
 - `larkm_multivalue_separator`: The character used to join repeated values in the "who" and "when" ARK fields.
 
+A minimal, but complete, Workbench configuration file incorporating the two sections above is:
+
+```
+task: create
+host: http://islandora.traefik.me/
+username: admin
+password: password
+input_csv: metadata.csv
+allow_adding_terms: true
+
+preprocessors: ["field_identifier: python /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_populate_node.py"]
+node_post_create: ["python /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_persist_to_queue.py"]
+shutdown: ["python /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_populate_larkm.py"]
+
+arks_log_file_path: /home/mark/hacking/islandora_workbench_larkm_scripts/arks.log
+drupal_ark_field: field_identifier
+drupal_when_field: field_edtf_date
+drupal_who_field: field_linked_agent
+larkm_host: http://127.0.0.1:8000
+larkm_api_key: myapikey
+larkm_naan: 19837
+larkm_shoulder: x9
+larkm_queue_path: /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_queue
+larkm_multivalue_separator: ;
+```
+
 
 ## License
 
