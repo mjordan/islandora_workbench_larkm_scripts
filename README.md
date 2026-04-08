@@ -28,9 +28,9 @@ Two sections of your Workbench config file need to be configured: 1) the hooks a
 This configuration is no different from configuring any other Workbench "hook" scripts.
 
 ```
-preprocessors: ["field_identifier: python /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_populate_node.py"]
-node_post_create: ["python /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_persist_to_queue.py"]
-shutdown: ["python /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_populate_larkm.py"]
+preprocessors: [field_identifier: 'python /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_populate_node.py']
+node_post_create: ['python /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_persist_to_queue.py']
+shutdown: ['python /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_populate_larkm.py']
 ```
 
 ### 2. Defining configuration settings for the scripts
