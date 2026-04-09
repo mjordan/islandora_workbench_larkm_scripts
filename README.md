@@ -4,7 +4,7 @@ A set of scripts to use with Islandora Workbench to assign ARKs to objects creat
 - `larkm_persist_to_queue.py`: This post-node-create script adds the node ID and data used in the ARK to a persistent queue.
 - `larkm_populate_larkm.py`: This shutdown script iterates through the queue and registers the ARK with larkm.
 
-This three-phase approach to creating ARKs for Islandora objects (populating the input CSV with ARKs, storing node IDs and ARK metadata in a persistent queue, and in a final step populating larkm from that queue) is intended to provide a fault-tolerant approach to assigning ARKs as early as possible in the objects' lifecycle, specifically without having to generate the ARKs after they are created and then update the objects with them. The ARKs are registered with larkm during the same Workbench job that creates the objects.
+This three-stage approach to creating ARKs for Islandora objects (populating the input CSV with ARKs, storing node IDs and ARK metadata in a persistent queue, and in a final step populating larkm from that queue) is intended to provide a fault-tolerant approach to assigning ARKs as early as possible in the objects' lifecycle, specifically without having to generate the ARKs after they are created and then update the objects with them. The ARKs are registered with larkm during the same Workbench job that creates the objects.
 
 ## Requirements
 
@@ -23,7 +23,7 @@ In addition to the configuration settings described below, you will need to make
 
 ## Configuration
 
-Two sections of your Workbench config file need to be configured: 1) the hooks and 2) the settings for the hook scripts.
+Two sections of your Workbench config file need to be configured: 1) the hooks and 2) the settings for the hook scripts:
 
 ### 1. Configuring the hooks
 
@@ -91,7 +91,7 @@ larkm_multivalue_separator: ;
 
 ## Using this approach with ARK managers other than larkm
 
-The only script that interacts with larkm is `larkm_populate_larkm.py`, and that interaction is limited to using larkm's REST interface to persist the ARKs. It should be possible to adapt this pattern to other ARK managers with REST interfaces, such as UT Scarborough's [ARKs Service](https://github.com/digitalutsc/arks-service/wiki).
+The only script that interacts with larkm is `larkm_populate_larkm.py`, and that interaction is limited to using larkm's REST interface to persist the ARKs. Adapting this pattern for use with other ARK managers with REST interfaces, such as UT Scarborough's [ARKs Service](https://github.com/digitalutsc/arks-service/wiki), will likely only modifying the `larkm_populate_larkm.py` script to issue the required HTTP requests.
 
 ## License
 
