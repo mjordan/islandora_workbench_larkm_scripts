@@ -1,10 +1,10 @@
 A set of scripts to use with Islandora Workbench to assign ARKs to objects created during Workbench `create` tasks and to automate population of larkm with those ARKs:
 
 - `larkm_populate_node.py`: This CSV preproceessor script populates the input CSV with a larkm-compliant identifier for each node.
-- `larkm_persist_to_queue.py`: This post-node-create script persists the node ID and data used in the ARK to a task queue.
+- `larkm_persist_to_queue.py`: This post-node-create script adds the node ID and data used in the ARK to a persistent queue.
 - `larkm_populate_larkm.py`: This shutdown script iterates through the queue and registers the ARK with larkm.
 
-This three-phase approach to creating ARKs for Islandora objects (populating the input CSV with ARKs, storing node IDs and ARK metadata in a queue, and in a final step populating larkm from that queue) is intended to provide a fault-tolerant approach to assigning ARKs as early as possible in the objects' lifecycle, without having to generate the ARKs after they are created and then update the objects.
+This three-phase approach to creating ARKs for Islandora objects (populating the input CSV with ARKs, storing node IDs and ARK metadata in a persistent queue, and in a final step populating larkm from that queue) is intended to provide a fault-tolerant approach to assigning ARKs as early as possible in the objects' lifecycle, specifically without having to generate the ARKs after they are created and then update the objects with them. The ARKs are registered with larkm during the same Workbench job that creates the objects.
 
 ## Requirements
 
