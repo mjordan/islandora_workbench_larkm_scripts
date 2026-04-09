@@ -11,6 +11,9 @@ This three-stage approach to creating ARKs for Islandora objects (populating the
 - [Islandora Workbench](https://mjordan.github.io/islandora_workbench_docs/)
 - An operational [larkm](https://github.com/mjordan/larkm) ARK manager/resolver
 
+> [!IMPORTANT] 
+> In addition to these requirements and the configuration settings described below, you will need to make sure that the IP address of the computer running Islandora Workbench is included in the larkm configuration setting "trusted_ips".
+
 ## Installation
 
 Run `python -m pip install .`
@@ -19,7 +22,7 @@ Run `python -m pip install .`
 
 All three of the included scripts are Islandora Workbench "[hook](https://mjordan.github.io/islandora_workbench_docs/hooks/)" scripts (one CSV preproceessor script, one post-node-create scripts, and one shutdown script). They are configured in your Workbench config file as documented below and work in tandem to populate your Islandora objects with ARKs and to also persist the ARKs in a larkm instance. When correctly configured, these scripts automate this process within the initial `create` Workbench job.
 
-In addition to the configuration settings described below, you will need to make sure that the IP address of the computer running Islandora Workbench is included in the larkm configuration setting "trusted_ips".
+These scripts can live outside your `islandora_workbench` directory, as long as the paths to them are reflected in the hook configuration settings. Depending on your system, you may also need to include the `python` interpreter (specific to your system) within the hook configuration settings, as illustrated below.
 
 ## Configuration
 
