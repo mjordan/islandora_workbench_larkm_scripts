@@ -89,6 +89,9 @@ larkm_queue_path: /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_que
 larkm_multivalue_separator: ;
 ```
 
+## Using this approach with ARK managers other than larkm
+
+The only script that interacts with larkm is `larkm_populate_larkm.py`, and that interaction is limited to using larkm's REST interface to persist the ARKs. It should be possible to adapt this pattern to other ARK managers with REST interfaces, such as UT Scarborough's [ARKs Service](https://github.com/digitalutsc/arks-service/wiki).
 
 ## License
 
