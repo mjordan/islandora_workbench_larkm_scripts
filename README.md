@@ -100,6 +100,8 @@ This retroactive job can be accomplished by using the `mint_arks_from_csv.py` he
 
 The `get_ark_data.py` script prompts the user for an Islandora hostname, then a start-of-range node ID, and finally an end-of-range node ID. Running the ouput from ths script through `mint_arks_from_csv.py` populates larkm, and also generates an output CSV file that can be used, with some modification, as the input CSV for a Workbench `update` task to persist the ARKs back into the Islandora objects. The specifics of this last step will depend on your local Islandora field configuration (e.g. which field to update with the ARKs) but all the necessary data is in the `mint_arks_from_csv.py` output CSV.
 
+Note that if you are retroactively generating ARKs for a large number of nodes, using `mint_arks_from_csv.py` to populate the larkm SQLite database directly is substantially faster than using it to populate larkm's HTTP REST endpoint. Also note that extracting the data from Islandora using `get_ark_data.py` can be time consuming. Best to plan retroactive ARK creation projects accordingly.
+
 ## Using this approach with ARK managers other than larkm
 
 The only script that interacts with larkm is `larkm_populate_larkm.py`, and that interaction is limited to using larkm's REST interface to persist the ARKs. Adapting this pattern for use with other ARK managers with REST interfaces, such as UT Scarborough's [ARKs Service](https://github.com/digitalutsc/arks-service/wiki), will likely only modifying the `larkm_populate_larkm.py` script to issue the required HTTP requests.
