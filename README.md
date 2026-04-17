@@ -11,7 +11,7 @@ This three-stage approach to creating ARKs for Islandora objects (populating the
 - [Islandora Workbench](https://mjordan.github.io/islandora_workbench_docs/)
 - An operational [larkm](https://github.com/mjordan/larkm) ARK manager/resolver
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > In addition to these requirements and the configuration settings described below, you will need to make sure that the IP address of the computer running Islandora Workbench is included in the larkm configuration setting "trusted_ips".
 
 ## Installation
@@ -92,9 +92,18 @@ larkm_queue_path: /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_que
 larkm_multivalue_separator: ;
 ```
 
+## Populating larkm with ARKs for existing Islandora nodes
+
+As explained above, configuring `larkm_populate_node.py`, `larkm_persist_to_queue.py`, and `larkm_populate_larkm.py` as Workbdench hook scripts registers ARKs in larkm at the time the Islandora nodes are created. But what if you want to create ARKs for existing nodes and register them with larkm?
+
+This retroactive job can be accomplished by using the `mint_arks_from_csv.py` helper script that is part of the larkm Github repo. That script takes a CSV file and either populates larkm (or optionally populates the SQLite database that larkm uses as a datastore). That script is not specific to Islandora, but to generate the Islandora-specific input data for that script, included in this Github repository is an additional script, `get_ark_data.py`. In other words, `get_ark_data.py` extracts the Islandora-specific data, which can be used as input for the general-purpose `mint_arks_from_csv.py` script.
+
+The `get_ark_data.py` script prompts the user for an Islandora hostname, then a start-of-range node ID, and finally an end-of-range node ID. Running the ouput from ths script through `mint_arks_from_csv.py` populates larkm, and also generates an output CSV file that can be used, with some modification, as the input CSV for a Workbench `update` task to persist the ARKs back into the Islandora objects. The specifics of this last step will depend on your local Islandora field configuration (e.g. which field to update with the ARKs) but all the necessary data is in the `mint_arks_from_csv.py` output CSV.
+
 ## Using this approach with ARK managers other than larkm
 
 The only script that interacts with larkm is `larkm_populate_larkm.py`, and that interaction is limited to using larkm's REST interface to persist the ARKs. Adapting this pattern for use with other ARK managers with REST interfaces, such as UT Scarborough's [ARKs Service](https://github.com/digitalutsc/arks-service/wiki), will likely only modifying the `larkm_populate_larkm.py` script to issue the required HTTP requests.
+
 
 ## License
 
