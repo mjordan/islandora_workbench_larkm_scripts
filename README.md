@@ -104,7 +104,7 @@ Note that if you are retroactively generating ARKs for a large number of nodes, 
 
 ## Using this approach with ARK managers other than larkm
 
-The only script that interacts with larkm is `larkm_populate_larkm.py`, and that interaction is limited to using larkm's REST interface to persist the ARKs. Adapting this pattern for use with other ARK managers with REST interfaces, such as UT Scarborough's [ARKs Service](https://github.com/digitalutsc/arks-service/wiki), will likely only modifying the `larkm_populate_larkm.py` script to issue the required HTTP requests.
+The pattern of using Islandora Workbench's hooks to create ARKs and persist them to their nodes and to an ARK manager would work with ARK managers other than larkm. The only script that interacts with larkm is `larkm_populate_larkm.py`, and that interaction is limited to using larkm's REST interface to persist the ARKs. Adapting this pattern for use with other ARK managers with REST interfaces, such as UT Scarborough's [ARKs Service](https://github.com/digitalutsc/arks-service/wiki), will likely only require modifying the `larkm_populate_larkm.py` script to issue the required HTTP requests.
 
 
 ## License
