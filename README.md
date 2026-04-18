@@ -94,7 +94,7 @@ larkm_multivalue_separator: |
 
 ## Populating larkm with ARKs for existing Islandora nodes
 
-As explained above, configuring `larkm_populate_node.py`, `larkm_persist_to_queue.py`, and `larkm_populate_larkm.py` as Workbdench hook scripts registers ARKs in larkm at the time the Islandora nodes are created. But what if you want to create ARKs for existing nodes and register them with larkm?
+As explained above, configuring `larkm_populate_node.py`, `larkm_persist_to_queue.py`, and `larkm_populate_larkm.py` as Workbdench hook scripts registers ARKs in larkm immediately after the Islandora nodes are created. But what if you want to create ARKs for existing nodes and register them with larkm?
 
 Populating larkm with ARKs in bulk can be accomplished by using the `mint_arks_from_csv.py` helper script that is part of the larkm Github repo. That script takes a CSV file and either populates larkm (or optionally directly populates the SQLite database that larkm uses as a datastore). That script is not specific to Islandora, but to generate the Islandora-specific input data for that script, included in this Github repository is an additional script, `get_ark_data.py`. In other words, `get_ark_data.py` extracts the Islandora-specific data, which can be used as input for the general-purpose `mint_arks_from_csv.py` script.
 
