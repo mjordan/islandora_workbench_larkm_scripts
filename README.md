@@ -52,7 +52,7 @@ larkm_api_key: 8d3ad3da-c3e8-4145-8fc4-b84f03a5c87a
 larkm_naan: 19837
 larkm_shoulder: x2
 larkm_queue_path: /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_queue
-larkm_multivalue_separator: ;
+larkm_multivalue_separator: |
 ```
 
 - `arks_log_file_path`: Absolute path to the log file created by the scripts.
@@ -89,7 +89,7 @@ larkm_api_key: myapikey
 larkm_naan: 19837
 larkm_shoulder: x9
 larkm_queue_path: /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_queue
-larkm_multivalue_separator: ;
+larkm_multivalue_separator: |
 ```
 
 ## Populating larkm with ARKs for existing Islandora nodes
