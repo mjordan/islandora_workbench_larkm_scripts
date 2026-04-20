@@ -86,6 +86,7 @@ drupal_when_field: field_edtf_date
 drupal_who_field: field_linked_agent
 larkm_host: http://127.0.0.1:8000
 larkm_api_key: myapikey
+# larkm_api_key: /home/mark/larkm_api.txt
 larkm_naan: 19837
 larkm_shoulder: x9
 larkm_queue_path: /home/mark/hacking/islandora_workbench_larkm_scripts/larkm_queue
