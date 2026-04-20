@@ -3,8 +3,8 @@ workbench_queue_sample_enqueue_node_id.py script.
 """
 
 import sys
+import os
 import logging
-import json
 
 from ruamel.yaml import YAML
 import requests
@@ -23,6 +23,12 @@ logging.basicConfig(
     datefmt="%d-%b-%y %H:%M:%S",
 )
 
+if os.path.isfile(os.path.abspath(config["larkm_api_key"])):
+    with open(os.path.abspath(config["larkm_api_key"])) as f:
+        larkm_api_key = f.readline().strip()
+else:
+    larkm_api_key = config["larkm_api_key"]
+
 q = persistqueue.SQLiteAckQueue(config["larkm_queue_path"], auto_commit=True)
 
 if q.empty() is True:
@@ -32,7 +38,7 @@ if q.empty() is True:
 
 larkm_host = config["larkm_host"].rstrip("/")
 endpoint = f"{larkm_host}/larkm"
-headers = {"Content-Type": "application/json", "Authorization": config["larkm_api_key"]}
+headers = {"Content-Type": "application/json", "Authorization": larkm_api_key}
 
 queue_size = q.qsize()
 while queue_size > 0:
@@ -54,7 +60,7 @@ while queue_size > 0:
         "what": item["title"],
         "when": item["when"],
         "who": item["who"],
-        "target": target
+        "target": target,
     }
 
     try:

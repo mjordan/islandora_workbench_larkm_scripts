@@ -60,7 +60,7 @@ larkm_multivalue_separator: |
 - `drupal_when_field`: The machine name of the field on your target content type where the node's date is stored; multiple values from this field are joined into a single string using the character defined in the "larkm_multivalue_separator" setting. Assumes that the field is of EDTF type.
 - `drupal_who_field`: The machine name of the field on your target content type where names are stored; multiple values from this field are joined into a single string using the character defined in the "larkm_multivalue_separator" setting. Assumes that the field is of typed relation type.
 - `larkm_host`: The hostname of your larkm server, including the leading "https://". A trailing `/` is ignored.
-- `larkm_api_key`: The API key to use when creating ARKs in larkm. Note that you will need to make sure that the IP address of the computer running Islandora Workbench is included in the larkm configuration setting "trusted_ips".
+- `larkm_api_key`: The API key to use when creating ARKs in larkm. Note that you will need to make sure that the IP address of the computer running Islandora Workbench is included in the larkm configuration setting "trusted_ips". If you provide an absolute path to a single-line file containing an API key, the scripts will read the key from that file.
 - `larkm_naan`: The NAAN to use.
 - `larkm_shoulder`: The shoulder to use.
 - `larkm_queue_path`: Absolute path to the persistent queue file.
