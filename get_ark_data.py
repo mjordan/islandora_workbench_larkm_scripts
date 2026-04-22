@@ -14,6 +14,7 @@ from requests.exceptions import ConnectTimeout, ReadTimeout, ConnectionError
 from rich.progress import track
 
 policy = ""
+metadata_value_separator = "|"
 
 islandora_host = input(
     "Enter the hostname, including the leading https://, that you want to extract data from: "
@@ -64,7 +65,7 @@ def get_when(node):
         when_list = []
         for date in node["field_edtf_date"]:
             when_list.append(date["value"])
-        return ";".join(when_list)
+        return metadata_value_separator.join(when_list)
 
 
 def get_who(node):
@@ -100,7 +101,7 @@ def get_who(node):
                         f"Attempt to fetch term name for {url} failed. Status code: {r.status_code}, exception: {ex}"
                     )
                     return ""
-        return ";".join(who_list)
+        return metadata_value_separator.join(who_list)
 
 
 field_linked_agent_cache = dict()
